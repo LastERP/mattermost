@@ -110,7 +110,7 @@ func (a *App) GetSession(token string) (*model.Session, *model.AppError) {
 
 	// We intentionally skip the error check here, we only want to check if the token is valid.
 	// If we don't have the session we are going to create one with the token eventually.
-	if session != nil {
+	if session == nil {
 		if session, _ = a.ch.srv.platform.GetSession(rctx, token); session != nil {
 			if session.Token != token {
 				return nil, model.NewAppError("GetSession", "api.context.invalid_token.error",
