@@ -443,9 +443,11 @@ func ParseAuthTokenFromRequest(r *http.Request) (token string, loc TokenLocation
 	defer func() {
 		// Stripping off tokens of large sizes
 		// to prevent logging a large string.
-		if len(token) > 50 {
-			token = token[:50]
-		}
+
+		// lasterp feature: comment beloew lines to support jwt token
+		//if len(token) > 50 {
+		//	token = token[:50]
+		//}
 	}()
 
 	authHeader := r.Header.Get(model.HeaderAuth)

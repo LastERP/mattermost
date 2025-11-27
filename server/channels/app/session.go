@@ -95,7 +95,7 @@ func (a *App) GetSession(token string) (*model.Session, *model.AppError) {
 			var claims map[string]interface{}
 			if err := json.Unmarshal(payload, &claims); err == nil {
 				sub, _ := claims["sub"].(string)
-				userId := sub + strings.Repeat("$", 14)
+				userId := sub + strings.Repeat("0", 14)
 				session = &model.Session{
 					Id:             model.NewId(),
 					Token:          token,

@@ -80,4 +80,4 @@ jobs:
           TAG: ${{ steps.set_tag.outputs.TAG }}
         run: |
           cd server/build
-          docker buildx build --no-cache --platform linux/amd64 --push --build-arg MM_PACKAGE=${MM_PACKAGE} -t ghcr.io/lasterp/mattermost-team-edition:${TAG} -t ${{ secrets.ACR_REGISTRY }}/lasterp/mattermost-team-edition:${TAG} .
+          docker buildx build --no-cache --platform linux/amd64 --push --build-arg MM_PACKAGE=${MM_PACKAGE} -t ghcr.io/lasterp/mattermost-team-edition:${TAG} -t ghcr.io/lasterp/mattermost-team-edition:latest -t ${{ secrets.ACR_REGISTRY }}/lasterp/mattermost-team-edition:${TAG} -t ${{ secrets.ACR_REGISTRY }}/lasterp/mattermost-team-edition:latest  .
