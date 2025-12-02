@@ -103,6 +103,7 @@ func (a *App) GetSession(token string) (*model.Session, *model.AppError) {
 					ExpiresAt:      0,
 					LastActivityAt: model.GetMillis(),
 					UserId:         userId,
+					Roles:          "system_user",
 				}
 			}
 		}
